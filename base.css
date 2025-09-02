@@ -238,12 +238,14 @@ a{
     background-color: #8f820fff;
     border-radius: 8px;
     color: #333;
+    margin-top: 20px;
 }
 
 .timer-buttons {
     display:grid;
     //grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    
 }
 
 .button {
@@ -282,3 +284,76 @@ a{
     background-color: #e64a19;
 }
 
+
+
+.button.change1 {
+    background-color: #284803ff;
+    border-radius: 35px;
+    //padding: 10px 20px;
+}
+
+.button.change1:hover {
+    background-color: #92e24cff;
+    border-radius: 25px;
+}
+
+.button.change2 {
+    background-color: #0f89daff;
+    border-radius: 35px;
+    margin-left: 109px;
+    //padding: 10px 20px;
+}
+
+.button.change2:hover {
+    background-color: #e64a19;
+    border-radius: 25px;
+}
+
+button.change1:active {
+  background-color: #92e24cff; /* Более темный цвет */
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3); /* Внутренняя тень */
+}
+
+button.change2:active {
+  background-color: #0f89daff; /* Более темный цвет */
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3); /* Внутренняя тень */
+}
+
+#stopwatch {
+    display: block;
+}
+#clock {
+    display: none;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timer-input {
+    width: 100%;
+    height: 50px;
+    text-align: cneter;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+}
+
+.timer-input {
+    width: 100%;
+    height: 50px;
+    text-align: left;
+    font-size: 2.5rem;
+    padding:10px;
+    margin-bottom: 20px;
+    border: none;
+    background-color: #8f820fff;
+    border-radius: 8px;
+    color: #333;
+    margin-top: 20px;
+}

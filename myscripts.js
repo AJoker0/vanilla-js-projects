@@ -82,3 +82,48 @@ function clearDisplay() {
     currentOperation = '';
     document.getElementById('display').value = '';
 }
+
+function changeTimer() {
+    document.getElementById('stopwatch').style.display = 'none';
+
+    document.getElementById('clock').style.display = 'block';
+}
+
+function showStopwatch() {
+    document.getElementById('stopwatch').style.display = 'block';
+    document.getElementById('clock').style.display = 'none';
+
+}
+
+function showTimer() {
+    document.getElementById('stopwatch').style.display = 'none';
+    document.getElementById('clock').style.display = 'block';
+}
+
+function startTimer() {
+    let time = parseInt(document.getElementById('timer-input').value, 10);
+    const timerDisplay = document.getElementById('timer-display');
+    if (isNaN(time) || time <= 0) {
+        alert('Please enter a valid number of seconds.');
+        return;
+    }
+
+    const interval = setInterval(() => {
+        if (time <= 0) {
+            clearInterval(interval);
+            timerDisplay.value = '00:00:00';
+        } else {
+            time--;
+            const minutes = Math.floor(time / 60);
+            const seconds = time % 60;
+            timerDisplay.value = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+    }, 1000);
+}
+
+function resetTimer() {
+    const timerDisplay = document.getElementById('timer-display');
+    timerDisplay.value = '00:00:00';
+    clearInterval(interval);
+}
+
