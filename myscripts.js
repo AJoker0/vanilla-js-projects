@@ -29,6 +29,7 @@ let currentInput = '';
 let currentOperation = '';
 let previousInput = '';
 
+
 function appendNumber(number) {
     currentInput += number;
     document.getElementById('display').value = `${previousInput} ${currentOperation} ${currentInput}`;
@@ -99,18 +100,26 @@ function showTimer() {
     document.getElementById('stopwatch').style.display = 'none';
     document.getElementById('clock').style.display = 'block';
 }
-
+let interval = null;
 function startTimer() {
     let time = parseInt(document.getElementById('timer-input').value, 10);
     const timerDisplay = document.getElementById('timer-display');
+
     if (isNaN(time) || time <= 0) {
         alert('Please enter a valid number of seconds.');
         return;
     }
 
-    const interval = setInterval(() => {
+    // Проверяем, если таймер уже запущен, не запускаем новый
+    if (interval !== null) {
+        alert('Timer is already running!');
+        return;
+    }
+
+    interval = setInterval(() => {
         if (time <= 0) {
             clearInterval(interval);
+            interval = null; // Сбрасываем переменную после завершения таймера
             timerDisplay.value = '00:00:00';
         } else {
             time--;
@@ -124,6 +133,10 @@ function startTimer() {
 function resetTimer() {
     const timerDisplay = document.getElementById('timer-display');
     timerDisplay.value = '00:00:00';
-    clearInterval(interval);
-}
 
+    // Останавливаем таймер, если он запущен
+    if (interval !== null) {
+        clearInterval(interval);
+        interval = null; // Сбрасываем переменную
+    }
+}
