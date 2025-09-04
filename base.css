@@ -130,6 +130,24 @@ a  { text-decoration: none; color: inherit; }
   transition: background-color 0.3s, transform 0.2s;
   color: white;
 }
+
+.button-random {
+  background-color: #fd5089ff;
+  border: none;
+  font-size: 1rem;
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+   transition: background-color 0.3s, transform 0.2s;
+  color: white;
+}
+
+.buttom-random:hover {
+  background-color: #79066dff;
+  transform: scale(2.1);
+}
+
+
 .button:hover { background-color: #0288d1; transform: scale(1.1); }
 .button:active { transform: scale(0.95); }
 .button.clear    { background-color: #ff5722; }
@@ -154,6 +172,8 @@ a  { text-decoration: none; color: inherit; }
   position: relative;   /* контекст позиционирования для эффекта */
   overflow: hidden;     /* обрезать эффект по рамке */
 }
+
+
 .timer-display {
   width: 100%;
   height: 50px;
@@ -167,6 +187,8 @@ a  { text-decoration: none; color: inherit; }
   color: #333;
   margin-top: 20px;
 }
+
+
 .timer-buttons {
   display: grid;
   /* grid-template-columns: repeat(4, 1fr); */
@@ -237,4 +259,31 @@ button.change2:active { background-color: #0f89daff; box-shadow: inset 0 1px 2px
     0% { opacity: 1; }
     80% { opacity: 1; }
     100% { opacity: 0; }
+}
+
+
+.random-number {
+  margin-left: 620px;
+  transform: translateY(-843px);
+  position: absolute;
+
+  width: 290px;
+  background-color: yellow;
+  border-radius: 25px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  padding: 15px;
+
+  position: realtive;
+  overflow: hidden;
+
+}
+
+.random-display {
+    width: 90%;
+    height: 30px;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    font-size: 19px;
 }

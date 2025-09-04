@@ -155,6 +155,12 @@ function showConfettiBurst(container, count = 40) {
   }
 }
 
+function generateRandomNumber() {
+    const number = Math.floor(Math.random() * 101);
+    document.getElementById('random-display').value = number;
+}
+window.generateRandomNumber = generateRandomNumber;
+
 // expose for inline onclicks
 window.appendNumber = appendNumber;
 window.appendOperation = appendOperation;
