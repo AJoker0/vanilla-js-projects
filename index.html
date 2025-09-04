@@ -1,160 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi</title>
-    <link rel="shortcut icon" href="favicon(1).ico" type="image/x-icon">
-    <link rel="stylesheet" href="base.css">
-    <link rel="icon" href="favicon(1).ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multi</title>
+  <link rel="shortcut icon" href="favicon(1).ico" type="image/x-icon">
+  <link rel="icon" href="favicon(1).ico" type="image/x-icon">
+  <link rel="stylesheet" href="base.css">
 </head>
 <body>
-    <header>
-        <button role="button" class="hamburger">
-            <span class="bar bar-1"></span>
-            <span class="bar bar-2"></span>
-            <span class="bar bar-3"></span>
-        </button>
-        <nav>
-            <ul class="navigation">
-                <li class="nav-item"><a href="#">CALCULATOR</a></li>
-                <li class="nav-item"><a href="#">TIMER</a></li>
-                <li class="nav-item"><a href="#">RANDOM</a></li>
-                <li class="nav-item"><a href="#">GUESS</a></li>
-                <li class="nav-item"><a href="#">TODO</a></li>
-                <li class="nav-item"><a href="#">CURRENCY</a></li>
-                <li class="nav-item"><a href="#">MODAL</a></li>
-                <li class="nav-item"><a href="#">SLIDER</a></li>
-                <li class="nav-item"><a href="#">PASSWORD</a></li>
-                <li class="nav-item"><a href="#">TICTACTOE</a></li>
-            </ul>
-        </nav>
-    </header>
-    <h1 class="specialHeader">Multi</h1>
-    <p style="margin-top:15px; text-align: center;" class="specialParagraph">This is a simple HTML file with the hard JS utilities.</p>
-    <div class="calculator">
-        <input type="text" id="display" class="display" disabled>
-        <div class="buttons">
-            <button class="button clear" onclick="clearDisplay()">C</button>
-            <button class="button operator" onclick="appendOperation('/')">/</button>
-            <button class="button operator" onclick="appendOperation('*')">*</button>
-            <button class="button operator" onclick="appendOperation('-')">-</button>
+  <header>
+    <button role="button" class="hamburger">
+      <span class="bar bar-1"></span>
+      <span class="bar bar-2"></span>
+      <span class="bar bar-3"></span>
+    </button>
+    <nav>
+      <ul class="navigation">
+        <li class="nav-item"><a href="#">CALCULATOR</a></li>
+        <li class="nav-item"><a href="#">TIMER</a></li>
+        <li class="nav-item"><a href="#">RANDOM</a></li>
+        <li class="nav-item"><a href="#">GUESS</a></li>
+        <li class="nav-item"><a href="#">TODO</a></li>
+        <li class="nav-item"><a href="#">CURRENCY</a></li>
+        <li class="nav-item"><a href="#">MODAL</a></li>
+        <li class="nav-item"><a href="#">SLIDER</a></li>
+        <li class="nav-item"><a href="#">PASSWORD</a></li>
+        <li class="nav-item"><a href="#">TICTACTOE</a></li>
+      </ul>
+    </nav>
+  </header>
 
-            <button class="button" onclick="appendNumber('7')">7</button>
-            <button class="button" onclick="appendNumber('8')">8</button>
-            <button class="button" onclick="appendNumber('9')">9</button>
-            <button class="button operator" onclick="appendOperation('+')">+</button>
+  <h1 class="specialHeader">Multi</h1>
+  <p class="specialParagraph" style="margin-top:15px; text-align:center;">
+    This is a simple HTML file with the hard JS utilities.
+  </p>
 
-            <button class="button" onclick="appendNumber('4')">4</button>
-            <button class="button" onclick="appendNumber('5')">5</button>
-            <button class="button" onclick="appendNumber('6')">6</button>
-            <button class="button equal" onclick="calculate()">=</button>
+  <!-- Calculator -->
+  <div class="calculator">
+    <input type="text" id="display" class="display" disabled>
+    <div class="buttons">
+      <button class="button clear" onclick="clearDisplay()">C</button>
+      <button class="button operator" onclick="appendOperation('/')">/</button>
+      <button class="button operator" onclick="appendOperation('*')">*</button>
+      <button class="button operator" onclick="appendOperation('-')">-</button>
 
-            <button class="button" onclick="appendNumber('1')">1</button>
-            <button class="button" onclick="appendNumber('2')">2</button>
-            <button class="button" onclick="appendNumber('3')">3</button>
-            <button class="button" onclick="appendNumber('0')">0</button>
-        </div>
+      <button class="button" onclick="appendNumber('7')">7</button>
+      <button class="button" onclick="appendNumber('8')">8</button>
+      <button class="button" onclick="appendNumber('9')">9</button>
+      <button class="button operator" onclick="appendOperation('+')">+</button>
+
+      <button class="button" onclick="appendNumber('4')">4</button>
+      <button class="button" onclick="appendNumber('5')">5</button>
+      <button class="button" onclick="appendNumber('6')">6</button>
+      <button class="button equal" onclick="calculate()">=</button>
+
+      <button class="button" onclick="appendNumber('1')">1</button>
+      <button class="button" onclick="appendNumber('2')">2</button>
+      <button class="button" onclick="appendNumber('3')">3</button>
+      <button class="button" onclick="appendNumber('0')">0</button>
+    </div>
+  </div>
+
+  <!-- Timer container -->
+  <div class="timer">
+    <div class="sec-clock">
+      <button class="button change1" onclick="showStopwatch()">⏱️</button>
+      <button class="button change2" onclick="showTimer()">⏰</button>
     </div>
 
-    <div class="timer">
-        <div class="sec-clock">
-            <button class="button change1" id="myButton" onclick="showStopwatch()">⏱️</button>
-            <button class="button change2" onclick="showTimer()">⏰</button>
-        </div>
-
-        <div id="stopwatch" style="display: block;">
-            <input type="text" id="timer" class="timer-display" disabled>
-            <div class="timer-buttons">
-                <button class="button start" id="start">Start</button>
-                <button class="button pause" id="pause" disabled>Pause</button>
-                <button class="button stop" id="reset" disabled>Stop</button>
-            </div>
-        </div>
-
-        <div id="clock" style="display: none;">
-            <input type="number" id="timer-input" class="timer-input" placeholder="Enter Seconds">
-            <div class="timer-buttons">
-                <button class="button start" id="timer-start" onclick="startTimer()">Start</button>
-                <button class="button stop" id="timer-reset" onclick="resetTimer()">Stop</button>
-            </div>
-            <input type="text" id="timer-display" class="timer-display" disabled>
-        </div>
+    <!-- Stopwatch view -->
+    <div id="stopwatch" style="display: block;">
+      <input type="text" id="timer" class="timer-display" disabled>
+      <div class="timer-buttons">
+        <button class="button start" id="start">Start</button>
+        <button class="button pause" id="pause" disabled>Pause</button>
+        <button class="button stop" id="reset" disabled>Stop</button>
+      </div>
     </div>
 
-    <script>
-        let startTime;
-        let interval;
-        let isRunning = false;
-        let elapsedTimeBeforePause = 0;
+    <!-- Countdown view -->
+    <div id="clock" style="display: none;">
+      <input type="number" id="timer-input" class="timer-input" placeholder="Enter Seconds">
+      <div class="timer-buttons">
+        <button class="button start" id="timer-start" onclick="startTimer()">Start</button>
+        <button class="button stop" id="timer-reset" onclick="resetTimer()">Stop</button>
+      </div>
+      <input type="text" id="timer-display" class="timer-display" disabled>
+    </div>
 
-        const timerDisplay = document.getElementById('timer');
-        const startButton = document.getElementById('start');
-        const pauseButton = document.getElementById('pause');
-        const resetButton = document.getElementById('reset');
+    <!-- Sound to play when timer ends -->
+    <audio id="timer-sound" src="sound.mp3"></audio>
+  </div>
 
-        function updateTime() {
-            const currentTime = new Date().getTime();
-            const elapsedTime = currentTime - startTime;
+  <!-- Inline script: ONLY stopwatch logic here -->
+  <script>
+    let startTime;
+    let stopwatchInterval;
+    let isRunning = false;
+    let elapsedTimeBeforePause = 0;
 
-            const totalSeconds = Math.floor(elapsedTime / 1000);
-            const seconds = totalSeconds % 60;
-            const milliseconds = (elapsedTime % 1000 / 1000).toFixed(2).slice(2);
-            const totalMinutes = Math.floor(totalSeconds / 60);
-            const minutes = totalMinutes % 60;
-            const hours = Math.floor(totalMinutes / 60);
+    const timerDisplay = document.getElementById('timer');
+    const startButton = document.getElementById('start');
+    const pauseButton = document.getElementById('pause');
+    const resetButton = document.getElementById('reset');
 
-            const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${milliseconds}`;
+    function updateTime() {
+      const currentTime = Date.now();
+      const elapsedTime = currentTime - startTime;
 
-            timerDisplay.value = formattedTime;
-        }
+      const totalSeconds = Math.floor(elapsedTime / 1000);
+      const seconds = totalSeconds % 60;
+      const totalMinutes = Math.floor(totalSeconds / 60);
+      const minutes = totalMinutes % 60;
+      const hours = Math.floor(totalMinutes / 60);
+      const milliseconds = String(Math.floor((elapsedTime % 1000) / 10)).padStart(2, '0');
 
-        function start() {
-            if (!isRunning) {
-                startTime = new Date().getTime() - elapsedTimeBeforePause;
-                interval = setInterval(updateTime, 10);
-                isRunning = true;
-                startButton.disabled = true;
-                pauseButton.disabled = false;
-                resetButton.disabled = false;
-            }
-        }
+      timerDisplay.value =
+        `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${milliseconds}`;
+    }
 
-        function pause() {
-            if (isRunning) {
-                clearInterval(interval);
-                elapsedTimeBeforePause = new Date().getTime() - startTime;
-                isRunning = false;
-                startButton.disabled = false;
-                pauseButton.disabled = true;
-                resetButton.disabled = false;
-            }
-        }
+    function start() {
+      if (!isRunning) {
+        startTime = Date.now() - elapsedTimeBeforePause;
+        stopwatchInterval = setInterval(updateTime, 10);
+        isRunning = true;
+        startButton.disabled = true;
+        pauseButton.disabled = false;
+        resetButton.disabled = false;
+      }
+    }
 
-        function reset() {
-            clearInterval(interval);
-            elapsedTimeBeforePause = 0;
-            timerDisplay.value = '00:00:00:00';
-            isRunning = false;
-            startButton.disabled = false;
-            pauseButton.disabled = true;
-            resetButton.disabled = true;
-        }
+    function pause() {
+      if (isRunning) {
+        clearInterval(stopwatchInterval);
+        elapsedTimeBeforePause = Date.now() - startTime;
+        isRunning = false;
+        startButton.disabled = false;
+        pauseButton.disabled = true;
+        resetButton.disabled = false;
+      }
+    }
 
-        startButton.addEventListener('click', start);
-        pauseButton.addEventListener('click', pause);
-        resetButton.addEventListener('click', reset);
+    function reset() {
+      clearInterval(stopwatchInterval);
+      elapsedTimeBeforePause = 0;
+      timerDisplay.value = '00:00:00.00';
+      isRunning = false;
+      startButton.disabled = false;
+      pauseButton.disabled = true;
+      resetButton.disabled = true;
+    }
 
-        function showStopwatch() {
-            document.getElementById('stopwatch').style.display = 'block';
-            document.getElementById('clock').style.display = 'none';
-        }
+    startButton.addEventListener('click', start);
+    pauseButton.addEventListener('click', pause);
+    resetButton.addEventListener('click', reset);
+  </script>
 
-        function showTimer() {
-            document.getElementById('stopwatch').style.display = 'none';
-            document.getElementById('clock').style.display = 'block';
-        }
-    </script>
-    <script src="myscripts.js"></script>
+  <!-- External script: navbar, calculator, countdown timer, confetti -->
+  <script src="myscripts.js"></script>
 </body>
 </html>
++
