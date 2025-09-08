@@ -21,6 +21,91 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener("resize", changingMediaQuery);
 });
 
+// ==== Guess Number ===========================================================
+const maxNumber = 100;
+let secretNumber = null;
+let attempts = 0;
+
+const inputEl = document.getElementById('guess-input');
+const hintEl = document.getElementById('inputContainer');
+const guessBtn = document.getElementById('guessBtn');
+const resetBtn = document.getElementById('resetBtn');
+const attemptsEl = document.getElementById('attempts');
+const historyEl = document.getElementById('history');
+
+// Инициализация новой игры
+function initGame() {
+  secretNumber = Math.floor(Math.random() * maxNumber) + 1;
+  attempts = 0;
+  attemptsEl.textContent = `Attempts: ${attempts}`;
+  hintEl.textContent = '';
+  hintEl.className = 'hint hint--info';
+  historyEl.innerHTML = '';
+  inputEl.disabled = false;
+  guessBtn.disabled = false;
+  inputEl.value = '';
+  inputEl.focus();
+  // console.log(secretNumber); // можно раскомментировать для отладки
+}
+
+// Обновление сообщения подсказки
+function showHint(message, type = 'info') {
+  hintEl.textContent = message;
+  hintEl.className = `hint hint--${type}`;
+}
+
+// Действие при попытке угадать
+function submitGuess() {
+  const val = inputEl.value;
+  if (val === '') {
+    showHint('Введите число.', 'error');
+    return;
+  }
+  const guess = Number(val);
+  if (!Number.isFinite(guess) || guess < 1 || guess > maxNumber) {
+    showHint(`Введите число от 1 до ${maxNumber}.`, 'error');
+    return;
+  }
+
+  attempts++;
+  attemptsEl.textContent = `Attempts: ${attempts}`;
+
+  const li = document.createElement('li');
+  li.textContent = `#${attempts}: ${guess}`;
+  historyEl.prepend(li);
+
+  if (guess < secretNumber) {
+    showHint('The number is BIGGER. Try again.', 'info');
+  } else if (guess > secretNumber) {
+    showHint('The number is SMALLER. Try again.', 'info');
+  } else {
+    showHint(`Congratulations! You guessed the number in ${attempts} attempts.`, 'success');
+    inputEl.disabled = true;
+    guessBtn.disabled = true;
+  }
+
+  inputEl.select();
+  inputEl.focus();
+}
+
+// Сброс / новая игра
+function resetGame() {
+  initGame();
+}
+
+// Обработчики событий
+document.addEventListener('DOMContentLoaded', () => {
+  guessBtn.addEventListener('click', submitGuess);
+  resetBtn.addEventListener('click', resetGame);
+
+  inputEl.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      submitGuess();
+    }
+  });
+
+  initGame();
+});
 // ==== Calculator =============================================================
 let currentInput = '';
 let currentOperation = '';
@@ -172,3 +257,5 @@ window.showTimer = showTimer;
 
 window.startTimer = startTimer;
 window.resetTimer = resetTimer;
+
+

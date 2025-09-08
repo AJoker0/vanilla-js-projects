@@ -163,16 +163,21 @@
   </div>
 
   <div class="guess-the-number">
-    <h1>Угадай число!</h1>
-    
-    <input type="text" id="guess-input" class="guess-input" placeholder="Введите ваше число (1-100)">
-    <button class="button-submit" onclick="submitGuess()">Угадать</button>
-    <button class="button-submit" onclick="resetGame()">Новая игра/ Сброс</button>
+    <h1>guess the number!</h1>
+    <p id="rangeText">Imagine number from 1 to 100</p>
 
+    <input type="number" id="guess-input" class="guess-input" placeholder="Enter your guess (1-100)" min="1" max="100">
+    <div id="inputContainer" class="hint hint--info" role="status" aria-live="polite"></div>
+    <div class="controls">
+      <button id="guessBtn" class="button-submit" type="button" onclick="submitGuess()">Guess</button>
+      <button id="resetBtn" class="button-submit" type="button" onclick="resetGame()">New Game/Reset</button>
+    </div>
+    <p id="attempts">Attempts: 0</p>
+    <ul id="history" aria-label="History of guesses"></ul>
   </div>
 
   <!-- External script: navbar, calculator, countdown timer, confetti -->
-  <script src="myscripts.js"></script>
+  <script src="myscripts.js" defer></script>
 </body>
 </html>
 +
